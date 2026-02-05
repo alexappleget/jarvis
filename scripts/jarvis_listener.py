@@ -3,8 +3,8 @@ import pvporcupine
 import pyaudio
 import threading
 import array
-from server.src.config import PORCUPINE_ACCESS_KEY
-from server.src.scripts.realtime_ai import realtime_ai
+from config import PORCUPINE_ACCESS_KEY
+from realtime_ai import realtime_ai
 
 def listen_for_jarvis():
     """Listen for wake word in a separate thread"""

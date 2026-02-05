@@ -1,5 +1,5 @@
 from flask import Flask
-from server.src.scripts.jarvis_listener import start_jarvis_listener
+from scripts.jarvis_listener import start_jarvis_listener
 
 app = Flask(__name__)
 

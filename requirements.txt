@@ -1,5 +1,4 @@
 flask
-anthropic
 openai
 pvporcupine
 pyaudio

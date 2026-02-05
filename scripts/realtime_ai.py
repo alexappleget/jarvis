@@ -1,10 +1,10 @@
 import asyncio
 import websockets
 import json
-from server.src.config import OPENAI_API_KEY
-from server.src.scripts.receive_audio import receive_audio
-from server.src.scripts.send_audio import send_audio
-from server.src.jarvis_instructions import JARVIS_INSTRUCTIONS
+from config import OPENAI_API_KEY
+from jarvis_instructions import JARVIS_INSTRUCTIONS
+from send_audio import send_audio
+from receive_audio import receive_audio
 
 OPENAI_WS_URL = "wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview"
 
