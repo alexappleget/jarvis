@@ -1,7 +1,7 @@
 import json
 import pyaudio
 import base64
-from scripts.github_handlers import generate_pr_description_personal, update_pr_description_personal
+from scripts.github_handlers import get_pr_description_personal, update_pr_description_personal
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
@@ -48,7 +48,7 @@ async def receive_audio(websocket, shutdown_event):
                 # Execute the handler
                 match function_name:
                     case "generate_pr_description_personal":
-                        result = generate_pr_description_personal(**arguments)
+                        result = get_pr_description_personal(**arguments)
                     case "update_pr_description_personal":
                         result = update_pr_description_personal(**arguments)
                     case _:

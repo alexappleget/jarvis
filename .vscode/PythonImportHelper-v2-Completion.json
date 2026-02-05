@@ -152,7 +152,7 @@
         "documentation": {}
     },
     {
-        "label": "generate_pr_description_personal",
+        "label": "get_pr_description_personal",
         "importPath": "scripts.github_handlers",
         "description": "scripts.github_handlers",
         "isExtraImport": true,
