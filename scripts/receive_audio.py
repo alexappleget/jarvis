@@ -1,6 +1,7 @@
 import json
 import pyaudio
 import base64
+from scripts.github_handlers import generate_pr_description_personal, update_pr_description_personal
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
@@ -35,6 +36,37 @@ async def receive_audio(websocket, shutdown_event):
                 if audio_base64:
                     audio_data = base64.b64decode(audio_base64)
                     stream.write(audio_data)
+
+            # Handle tool calls
+            if event_type == "response.function_call_arguments.done":
+                call_id = data.get("call_id")
+                function_name = data.get("name")
+                arguments = json.loads(data.get("arguments", "{}"))
+                
+                print(f"🔧 Tool call: {function_name} with {arguments}")
+                
+                # Execute the handler
+                match function_name:
+                    case "generate_pr_description_personal":
+                        result = generate_pr_description_personal(**arguments)
+                    case "update_pr_description_personal":
+                        result = update_pr_description_personal(**arguments)
+                    case _:
+                        result = {"error": "Unknown function"}
+                
+                # Send result back to model
+                tool_response = {
+                    "type": "conversation.item.create",
+                    "item": {
+                        "type": "function_call_output",
+                        "call_id": call_id,
+                        "output": json.dumps(result)
+                    }
+                }
+                await websocket.send(json.dumps(tool_response))
+                
+                # Trigger response generation
+                await websocket.send(json.dumps({"type": "response.create"}))
 
             # Check for goodbye in transcription
             if event_type == "conversation.item.input_audio_transcription.completed":

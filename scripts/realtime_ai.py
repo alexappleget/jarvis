@@ -3,8 +3,9 @@ import websockets
 import json
 from config import OPENAI_API_KEY
 from jarvis_instructions import JARVIS_INSTRUCTIONS
-from send_audio import send_audio
-from receive_audio import receive_audio
+from scripts.send_audio import send_audio
+from scripts.receive_audio import receive_audio
+from jarvis_tools import JARVIS_TOOLS
 
 OPENAI_WS_URL = "wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview"
 
@@ -25,7 +26,7 @@ async def realtime_ai():
                 "modalities": ["text", "audio"],
                 "voice": "cedar",
                 "instructions": JARVIS_INSTRUCTIONS,
-                # "tools":
+                "tools": JARVIS_TOOLS,
                 "input_audio_format": "pcm16",
                 "output_audio_format": "pcm16",
                 "input_audio_transcription": {"model": "whisper-1"},

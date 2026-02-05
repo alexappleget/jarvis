@@ -1,5 +1,45 @@
 [
     {
+        "label": "Github",
+        "importPath": "github",
+        "description": "github",
+        "isExtraImport": true,
+        "detail": "github",
+        "documentation": {}
+    },
+    {
+        "label": "GITHUB_TOKEN",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "GITHUB_USERNAME",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "PORCUPINE_ACCESS_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
         "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
@@ -45,27 +85,11 @@
         "documentation": {}
     },
     {
-        "label": "PORCUPINE_ACCESS_KEY",
-        "importPath": "config",
-        "description": "config",
-        "isExtraImport": true,
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "OPENAI_API_KEY",
-        "importPath": "config",
-        "description": "config",
-        "isExtraImport": true,
-        "detail": "config",
-        "documentation": {}
-    },
-    {
         "label": "realtime_ai",
-        "importPath": "realtime_ai",
-        "description": "realtime_ai",
+        "importPath": "scripts.realtime_ai",
+        "description": "scripts.realtime_ai",
         "isExtraImport": true,
-        "detail": "realtime_ai",
+        "detail": "scripts.realtime_ai",
         "documentation": {}
     },
     {
@@ -96,18 +120,26 @@
     },
     {
         "label": "send_audio",
-        "importPath": "send_audio",
-        "description": "send_audio",
+        "importPath": "scripts.send_audio",
+        "description": "scripts.send_audio",
         "isExtraImport": true,
-        "detail": "send_audio",
+        "detail": "scripts.send_audio",
         "documentation": {}
     },
     {
         "label": "receive_audio",
-        "importPath": "receive_audio",
-        "description": "receive_audio",
+        "importPath": "scripts.receive_audio",
+        "description": "scripts.receive_audio",
         "isExtraImport": true,
-        "detail": "receive_audio",
+        "detail": "scripts.receive_audio",
+        "documentation": {}
+    },
+    {
+        "label": "JARVIS_TOOLS",
+        "importPath": "jarvis_tools",
+        "description": "jarvis_tools",
+        "isExtraImport": true,
+        "detail": "jarvis_tools",
         "documentation": {}
     },
     {
@@ -117,6 +149,22 @@
         "importPath": "base64",
         "description": "base64",
         "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pr_description_personal",
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "isExtraImport": true,
+        "detail": "scripts.github_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "update_pr_description_personal",
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "isExtraImport": true,
+        "detail": "scripts.github_handlers",
         "documentation": {}
     },
     {
@@ -150,6 +198,24 @@
         "description": "dotenv",
         "isExtraImport": true,
         "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "get_pr_description_personal",
+        "kind": 2,
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "peekOfCode": "def get_pr_description_personal(repo: str, pr_number: int):\n  \"\"\"\n  Fetch PR details from a personal GitHub repository.\n  Returns PR context for the AI to generate a description.\n  \"\"\"\n  try:\n    github = Github(GITHUB_TOKEN)\n    user = github.get_user(GITHUB_USERNAME)\n    repo_obj = user.get_repo(repo)\n    pr = repo_obj.get_pull(pr_number)",
+        "detail": "scripts.github_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "update_pr_description_personal",
+        "kind": 2,
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "peekOfCode": "def update_pr_description_personal(repo: str, pr_number: int, description: str):\n  \"\"\"Update the PR body with the generated description.\"\"\"\n  try:\n    github = Github(GITHUB_TOKEN)\n    user = github.get_user(GITHUB_USERNAME)\n    repo_obj = user.get_repo\n    pr = repo_obj.get_pull(pr_number)\n    pr.edit(body=description)\n    return {\"success\": True}\n  except Exception as error:",
+        "detail": "scripts.github_handlers",
         "documentation": {}
     },
     {
@@ -261,20 +327,29 @@
         "documentation": {}
     },
     {
-        "label": "OPENAI_API_KEY",
+        "label": "GITHUB_TOKEN",
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "OPENAI_API_KEY = os.getenv(\"OPENAI_API_KEY\")\nCLAUDE_API_KEY = os.getenv(\"CLAUDE_API_KEY\")\nPORCUPINE_ACCESS_KEY = os.getenv(\"PORCUPINE_ACCESS_KEY\")",
+        "peekOfCode": "GITHUB_TOKEN = os.getenv(\"GITHUB_TOKEN\")\nGITHUB_USERNAME = os.getenv(\"GITHUB_USERNAME\")\nOPENAI_API_KEY = os.getenv(\"OPENAI_API_KEY\")\nPORCUPINE_ACCESS_KEY = os.getenv(\"PORCUPINE_ACCESS_KEY\")",
         "detail": "config",
         "documentation": {}
     },
     {
-        "label": "CLAUDE_API_KEY",
+        "label": "GITHUB_USERNAME",
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "CLAUDE_API_KEY = os.getenv(\"CLAUDE_API_KEY\")\nPORCUPINE_ACCESS_KEY = os.getenv(\"PORCUPINE_ACCESS_KEY\")",
+        "peekOfCode": "GITHUB_USERNAME = os.getenv(\"GITHUB_USERNAME\")\nOPENAI_API_KEY = os.getenv(\"OPENAI_API_KEY\")\nPORCUPINE_ACCESS_KEY = os.getenv(\"PORCUPINE_ACCESS_KEY\")",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAI_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "OPENAI_API_KEY = os.getenv(\"OPENAI_API_KEY\")\nPORCUPINE_ACCESS_KEY = os.getenv(\"PORCUPINE_ACCESS_KEY\")",
         "detail": "config",
         "documentation": {}
     },
@@ -301,7 +376,7 @@
         "kind": 5,
         "importPath": "jarvis_tools",
         "description": "jarvis_tools",
-        "peekOfCode": "JARVIS_TOOLS = [\n    {\n        \"type\": \"function\",\n        \"name\": \"hello\",\n        \"description\": \"Say hello to someone by name\",\n        \"parameters\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",",
+        "peekOfCode": "JARVIS_TOOLS = [\n    {\n        \"type\": \"function\",\n        \"name\": \"get_pr_description_personal\",\n        \"description\": \"Fetch details from a GitHub PR in Alex's personal repository and generate a structured PR description following the github_pr_template.md format, including a clear description of changes, type of change classification, and completed checklist items\",\n        \"parameters\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"repo\": {\n                    \"type\": \"string\",",
         "detail": "jarvis_tools",
         "documentation": {}
     }
