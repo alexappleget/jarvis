@@ -9,11 +9,15 @@ CHANNELS = 1
 RATE = 24000
 
 
-async def send_audio(websocket, shutdown_event):
+async def send_microphone_audio(websocket, shutdown_event):
     """Send audio from microphone to OpenAI"""
-    p = pyaudio.PyAudio()
-    stream = p.open(
-        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK
+    audio_player = pyaudio.PyAudio()
+    stream = audio_player.open(
+        format=FORMAT,
+        channels=CHANNELS,
+        rate=RATE,
+        input=True,
+        frames_per_buffer=CHUNK
     )
 
     try:
@@ -28,4 +32,4 @@ async def send_audio(websocket, shutdown_event):
     finally:
         stream.stop_stream()
         stream.close()
-        p.terminate()
+        audio_player.terminate()
