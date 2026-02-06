@@ -2,6 +2,7 @@ import json
 import pyaudio
 import base64
 from scripts.github_handlers import get_pr_description_personal, update_pr_description_personal
+from scripts.create_file import create_file
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
@@ -39,18 +40,13 @@ async def handle_ai_responses(websocket, shutdown_event):
         arguments = json.loads(data.get("arguments"))
         print(f"🔧 Tool call: {function_name} with {arguments}")
 
-        pre_tool_message = {
-            "type": "response.audio.delta",
-            "delta": base64.b64decode(b"One moment, sir. Processing your request now.")
-        }
-
-        await websocket.send(json.dumps(pre_tool_message))
-
         match function_name:
             case "get_pr_description_personal":
                 result = get_pr_description_personal(**arguments)
             case "update_pr_description_personal":
                 result = update_pr_description_personal(**arguments)
+            case "create_file":
+                result = create_file(**arguments)
             case _:
                 result = {"error": "Unknown function"}
 
