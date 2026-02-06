@@ -1,5 +1,14 @@
 [
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "Github",
         "importPath": "github",
         "description": "github",
@@ -80,6 +89,14 @@
         "description": "scripts.github_handlers",
         "isExtraImport": true,
         "detail": "scripts.github_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "create_file",
+        "importPath": "scripts.create_file",
+        "description": "scripts.create_file",
+        "isExtraImport": true,
+        "detail": "scripts.create_file",
         "documentation": {}
     },
     {
@@ -184,20 +201,20 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
         "isExtraImport": true,
         "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "create_file",
+        "kind": 2,
+        "importPath": "scripts.create_file",
+        "description": "scripts.create_file",
+        "peekOfCode": "def create_file(filename: str):\n  base_directory = r\"C:\\My Projects\"\n  file_name = f\"{filename}.md\"\n  file_path = os.path.join(base_directory, file_name)\n  hardcoded_content = \"# This is a Markdown file created by Jarvis.\"\n  try:\n    with open(file_path, \"w\", encoding=\"utf-8\") as file:\n      file.write(hardcoded_content)\n    return {\"success\": True, \"message\": f\"File '{file_path}' created.\"}\n  except Exception as error:",
+        "detail": "scripts.create_file",
         "documentation": {}
     },
     {

@@ -41,4 +41,19 @@ JARVIS_TOOLS = [
             "required": ["repo", "pr_number", "description"],
         },
     },
+    {
+        "type": "function",
+        "name": "create_file",
+        "description": "Create a new file with the specified name in the C:\\My Projects folder.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "type": "string",
+                    "description": "The name for the new file (e.g., 'notes.txt')."
+                },
+            },
+            "required": ["filename"]
+        }
+    },
 ]
