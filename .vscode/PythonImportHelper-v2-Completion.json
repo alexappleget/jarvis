@@ -214,7 +214,7 @@
         "kind": 2,
         "importPath": "scripts.github_handlers",
         "description": "scripts.github_handlers",
-        "peekOfCode": "def update_pr_description_personal(repo: str, pr_number: int, description: str):\n  \"\"\"Update the PR body with the generated description.\"\"\"\n  try:\n    github = Github(GITHUB_TOKEN)\n    user = github.get_user(GITHUB_USERNAME)\n    repo_obj = user.get_repo\n    pr = repo_obj.get_pull(pr_number)\n    pr.edit(body=description)\n    return {\"success\": True}\n  except Exception as error:",
+        "peekOfCode": "def update_pr_description_personal(repo: str, pr_number: int, description: str):\n  \"\"\"Update the PR body with the generated description.\"\"\"\n  try:\n    github = Github(GITHUB_TOKEN)\n    user = github.get_user(GITHUB_USERNAME)\n    repo_obj = user.get_repo(repo)\n    pr = repo_obj.get_pull(pr_number)\n    pr.edit(body=description)\n    return {\"success\": True}\n  except Exception as error:",
         "detail": "scripts.github_handlers",
         "documentation": {}
     },
@@ -376,7 +376,7 @@
         "kind": 5,
         "importPath": "jarvis_tools",
         "description": "jarvis_tools",
-        "peekOfCode": "JARVIS_TOOLS = [\n    {\n        \"type\": \"function\",\n        \"name\": \"get_pr_description_personal\",\n        \"description\": \"Fetch details from a GitHub PR in Alex's personal repository and generate a structured PR description following the github_pr_template.md format, including a clear description of changes, type of change classification, and completed checklist items\",\n        \"parameters\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"repo\": {\n                    \"type\": \"string\",",
+        "peekOfCode": "JARVIS_TOOLS = [\n    {\n        \"type\": \"function\",\n        \"name\": \"get_pr_description_personal\",\n        \"description\": \"Fetch details from a GitHub PR in Alex's personal repository. Use this to get the PR title, files changed, commits, and the PR template. Then generate a professional description following the template format and call update_pr_description_personal to save it.\",\n        \"parameters\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"repo\": {\n                    \"type\": \"string\",",
         "detail": "jarvis_tools",
         "documentation": {}
     }

@@ -38,7 +38,7 @@ def update_pr_description_personal(repo: str, pr_number: int, description: str):
   try:
     github = Github(GITHUB_TOKEN)
     user = github.get_user(GITHUB_USERNAME)
-    repo_obj = user.get_repo
+    repo_obj = user.get_repo(repo)
     pr = repo_obj.get_pull(pr_number)
 
     pr.edit(body=description)

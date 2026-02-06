@@ -47,7 +47,7 @@ async def receive_audio(websocket, shutdown_event):
                 
                 # Execute the handler
                 match function_name:
-                    case "generate_pr_description_personal":
+                    case "get_pr_description_personal":
                         result = get_pr_description_personal(**arguments)
                     case "update_pr_description_personal":
                         result = update_pr_description_personal(**arguments)

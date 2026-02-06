@@ -2,7 +2,7 @@ JARVIS_TOOLS = [
     {
         "type": "function",
         "name": "get_pr_description_personal",
-        "description": "Fetch details from a GitHub PR in Alex's personal repository and generate a structured PR description following the github_pr_template.md format, including a clear description of changes, type of change classification, and completed checklist items",
+        "description": "Fetch details from a GitHub PR in Alex's personal repository. Use this to get the PR title, files changed, commits, and the PR template. Then generate a professional description following the template format and call update_pr_description_personal to save it.",
         "parameters": {
             "type": "object",
             "properties": {
