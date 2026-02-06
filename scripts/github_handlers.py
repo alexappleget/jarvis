@@ -12,18 +12,27 @@ def get_pr_description_personal(repo: str, pr_number: int):
     repo_obj = user.get_repo(repo)
     pr = repo_obj.get_pull(pr_number)
 
-    files_changed = [file.filename for file in pr.get_files()]
+    files_changed = []
+    file_differences = []
+
+    for file in pr.get_files():
+      files_changed.append(file.filename)
+      file_differences.append({
+        "filename": file.filename,
+        "patch": file.patch
+      })
 
     commits = [{"message": commit.commit.message, "author": commit.commit.author.name} for commit in pr.get_commits()]
 
-    with open('github_pr_template.md', 'r') as f:
-      template = f.read()
+    with open('github_pr_template.md', 'r') as file:
+      template = file.read()
 
     return {
       "success": True,
       "pr_title": pr.title,
       "pr_body": pr.body or "(No description)",
       "files_changed": files_changed,
+      "file_differences": file_differences,
       "commits": commits,
       "base_branch": pr.base.ref,
       "head_branch": pr.head.ref,
