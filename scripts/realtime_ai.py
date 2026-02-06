@@ -3,8 +3,8 @@ import websockets
 import json
 from config import OPENAI_API_KEY
 from jarvis_instructions import JARVIS_INSTRUCTIONS
-from scripts.send_audio import send_audio
-from scripts.receive_audio import receive_audio
+from scripts.send_microphone_audio import send_microphone_audio
+from scripts.handle_ai_responses import handle_ai_responses
 from jarvis_tools import JARVIS_TOOLS
 
 OPENAI_WS_URL = "wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview"
@@ -46,8 +46,8 @@ async def realtime_ai():
         print("🎤 Listening... Say 'goodbye Jarvis' to end.")
 
         await asyncio.gather(
-            send_audio(websocket, shutdown_event),
-            receive_audio(websocket, shutdown_event),
+            send_microphone_audio(websocket, shutdown_event),
+            handle_ai_responses(websocket, shutdown_event),
         )
 
         print("✓ Session ended")

@@ -40,6 +40,49 @@
         "documentation": {}
     },
     {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "pyaudio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pyaudio",
+        "description": "pyaudio",
+        "detail": "pyaudio",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "get_pr_description_personal",
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "isExtraImport": true,
+        "detail": "scripts.github_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "update_pr_description_personal",
+        "importPath": "scripts.github_handlers",
+        "description": "scripts.github_handlers",
+        "isExtraImport": true,
+        "detail": "scripts.github_handlers",
+        "documentation": {}
+    },
+    {
         "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
@@ -55,15 +98,6 @@
         "importPath": "pvporcupine",
         "description": "pvporcupine",
         "detail": "pvporcupine",
-        "documentation": {}
-    },
-    {
-        "label": "pyaudio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pyaudio",
-        "description": "pyaudio",
-        "detail": "pyaudio",
         "documentation": {}
     },
     {
@@ -102,15 +136,6 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "JARVIS_INSTRUCTIONS",
         "importPath": "jarvis_instructions",
         "description": "jarvis_instructions",
@@ -119,19 +144,19 @@
         "documentation": {}
     },
     {
-        "label": "send_audio",
-        "importPath": "scripts.send_audio",
-        "description": "scripts.send_audio",
+        "label": "send_microphone_audio",
+        "importPath": "scripts.send_microphone_audio",
+        "description": "scripts.send_microphone_audio",
         "isExtraImport": true,
-        "detail": "scripts.send_audio",
+        "detail": "scripts.send_microphone_audio",
         "documentation": {}
     },
     {
-        "label": "receive_audio",
-        "importPath": "scripts.receive_audio",
-        "description": "scripts.receive_audio",
+        "label": "handle_ai_responses",
+        "importPath": "scripts.handle_ai_responses",
+        "description": "scripts.handle_ai_responses",
         "isExtraImport": true,
-        "detail": "scripts.receive_audio",
+        "detail": "scripts.handle_ai_responses",
         "documentation": {}
     },
     {
@@ -140,31 +165,6 @@
         "description": "jarvis_tools",
         "isExtraImport": true,
         "detail": "jarvis_tools",
-        "documentation": {}
-    },
-    {
-        "label": "base64",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "base64",
-        "description": "base64",
-        "detail": "base64",
-        "documentation": {}
-    },
-    {
-        "label": "get_pr_description_personal",
-        "importPath": "scripts.github_handlers",
-        "description": "scripts.github_handlers",
-        "isExtraImport": true,
-        "detail": "scripts.github_handlers",
-        "documentation": {}
-    },
-    {
-        "label": "update_pr_description_personal",
-        "importPath": "scripts.github_handlers",
-        "description": "scripts.github_handlers",
-        "isExtraImport": true,
-        "detail": "scripts.github_handlers",
         "documentation": {}
     },
     {
@@ -219,6 +219,42 @@
         "documentation": {}
     },
     {
+        "label": "CHUNK",
+        "kind": 5,
+        "importPath": "scripts.handle_ai_responses",
+        "description": "scripts.handle_ai_responses",
+        "peekOfCode": "CHUNK = 1024\nFORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def handle_ai_responses(websocket, shutdown_event):\n    \"\"\"\n    Handle and play audio and tool responses from the AI over the websocket.\n    Receives messages from the AI, plays audio responses, handles tool calls,\n    and manages session shutdown when 'goodbye Jarvis' is detected.\n    \"\"\"",
+        "detail": "scripts.handle_ai_responses",
+        "documentation": {}
+    },
+    {
+        "label": "FORMAT",
+        "kind": 5,
+        "importPath": "scripts.handle_ai_responses",
+        "description": "scripts.handle_ai_responses",
+        "peekOfCode": "FORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def handle_ai_responses(websocket, shutdown_event):\n    \"\"\"\n    Handle and play audio and tool responses from the AI over the websocket.\n    Receives messages from the AI, plays audio responses, handles tool calls,\n    and manages session shutdown when 'goodbye Jarvis' is detected.\n    \"\"\"\n    audio_player = pyaudio.PyAudio()",
+        "detail": "scripts.handle_ai_responses",
+        "documentation": {}
+    },
+    {
+        "label": "CHANNELS",
+        "kind": 5,
+        "importPath": "scripts.handle_ai_responses",
+        "description": "scripts.handle_ai_responses",
+        "peekOfCode": "CHANNELS = 1\nRATE = 24000\nasync def handle_ai_responses(websocket, shutdown_event):\n    \"\"\"\n    Handle and play audio and tool responses from the AI over the websocket.\n    Receives messages from the AI, plays audio responses, handles tool calls,\n    and manages session shutdown when 'goodbye Jarvis' is detected.\n    \"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(",
+        "detail": "scripts.handle_ai_responses",
+        "documentation": {}
+    },
+    {
+        "label": "RATE",
+        "kind": 5,
+        "importPath": "scripts.handle_ai_responses",
+        "description": "scripts.handle_ai_responses",
+        "peekOfCode": "RATE = 24000\nasync def handle_ai_responses(websocket, shutdown_event):\n    \"\"\"\n    Handle and play audio and tool responses from the AI over the websocket.\n    Receives messages from the AI, plays audio responses, handles tool calls,\n    and manages session shutdown when 'goodbye Jarvis' is detected.\n    \"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,",
+        "detail": "scripts.handle_ai_responses",
+        "documentation": {}
+    },
+    {
         "label": "listen_for_jarvis",
         "kind": 2,
         "importPath": "scripts.jarvis_listener",
@@ -248,73 +284,37 @@
     {
         "label": "CHUNK",
         "kind": 5,
-        "importPath": "scripts.receive_audio",
-        "description": "scripts.receive_audio",
-        "peekOfCode": "CHUNK = 1024\nFORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def receive_audio(websocket, shutdown_event):\n    \"\"\"Receive and play audio from OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,",
-        "detail": "scripts.receive_audio",
+        "importPath": "scripts.send_microphone_audio",
+        "description": "scripts.send_microphone_audio",
+        "peekOfCode": "CHUNK = 1024\nFORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def send_microphone_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,",
+        "detail": "scripts.send_microphone_audio",
         "documentation": {}
     },
     {
         "label": "FORMAT",
         "kind": 5,
-        "importPath": "scripts.receive_audio",
-        "description": "scripts.receive_audio",
-        "peekOfCode": "FORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def receive_audio(websocket, shutdown_event):\n    \"\"\"Receive and play audio from OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,",
-        "detail": "scripts.receive_audio",
+        "importPath": "scripts.send_microphone_audio",
+        "description": "scripts.send_microphone_audio",
+        "peekOfCode": "FORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def send_microphone_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,",
+        "detail": "scripts.send_microphone_audio",
         "documentation": {}
     },
     {
         "label": "CHANNELS",
         "kind": 5,
-        "importPath": "scripts.receive_audio",
-        "description": "scripts.receive_audio",
-        "peekOfCode": "CHANNELS = 1\nRATE = 24000\nasync def receive_audio(websocket, shutdown_event):\n    \"\"\"Receive and play audio from OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,\n        output=True,",
-        "detail": "scripts.receive_audio",
+        "importPath": "scripts.send_microphone_audio",
+        "description": "scripts.send_microphone_audio",
+        "peekOfCode": "CHANNELS = 1\nRATE = 24000\nasync def send_microphone_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,\n        input=True,",
+        "detail": "scripts.send_microphone_audio",
         "documentation": {}
     },
     {
         "label": "RATE",
         "kind": 5,
-        "importPath": "scripts.receive_audio",
-        "description": "scripts.receive_audio",
-        "peekOfCode": "RATE = 24000\nasync def receive_audio(websocket, shutdown_event):\n    \"\"\"Receive and play audio from OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,\n        output=True,\n        frames_per_buffer=CHUNK,",
-        "detail": "scripts.receive_audio",
-        "documentation": {}
-    },
-    {
-        "label": "CHUNK",
-        "kind": 5,
-        "importPath": "scripts.send_audio",
-        "description": "scripts.send_audio",
-        "peekOfCode": "CHUNK = 1024\nFORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def send_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    p = pyaudio.PyAudio()\n    stream = p.open(\n        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK\n    )",
-        "detail": "scripts.send_audio",
-        "documentation": {}
-    },
-    {
-        "label": "FORMAT",
-        "kind": 5,
-        "importPath": "scripts.send_audio",
-        "description": "scripts.send_audio",
-        "peekOfCode": "FORMAT = pyaudio.paInt16\nCHANNELS = 1\nRATE = 24000\nasync def send_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    p = pyaudio.PyAudio()\n    stream = p.open(\n        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK\n    )\n    try:",
-        "detail": "scripts.send_audio",
-        "documentation": {}
-    },
-    {
-        "label": "CHANNELS",
-        "kind": 5,
-        "importPath": "scripts.send_audio",
-        "description": "scripts.send_audio",
-        "peekOfCode": "CHANNELS = 1\nRATE = 24000\nasync def send_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    p = pyaudio.PyAudio()\n    stream = p.open(\n        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK\n    )\n    try:\n        while not shutdown_event.is_set():",
-        "detail": "scripts.send_audio",
-        "documentation": {}
-    },
-    {
-        "label": "RATE",
-        "kind": 5,
-        "importPath": "scripts.send_audio",
-        "description": "scripts.send_audio",
-        "peekOfCode": "RATE = 24000\nasync def send_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    p = pyaudio.PyAudio()\n    stream = p.open(\n        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK\n    )\n    try:\n        while not shutdown_event.is_set():\n            audio_data = stream.read(CHUNK, exception_on_overflow=False)",
-        "detail": "scripts.send_audio",
+        "importPath": "scripts.send_microphone_audio",
+        "description": "scripts.send_microphone_audio",
+        "peekOfCode": "RATE = 24000\nasync def send_microphone_audio(websocket, shutdown_event):\n    \"\"\"Send audio from microphone to OpenAI\"\"\"\n    audio_player = pyaudio.PyAudio()\n    stream = audio_player.open(\n        format=FORMAT,\n        channels=CHANNELS,\n        rate=RATE,\n        input=True,\n        frames_per_buffer=CHUNK",
+        "detail": "scripts.send_microphone_audio",
         "documentation": {}
     },
     {
