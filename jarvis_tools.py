@@ -43,6 +43,37 @@ JARVIS_TOOLS = [
     },
     {
         "type": "function",
+        "name": "add_google_calendar_event",
+        "description": "Add a new event to Alex's Google Calendar.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "summary": {
+                    "type": "string",
+                    "description": "The title or summary of the calendar event.",
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "The start date and time of the event in ISO 8601 format (e.g., '2026-02-19T10:00:00').",
+                },
+                "end_time": {
+                    "type": "string",
+                    "description": "The end date and time of the event in ISO 8601 format (e.g., '2026-02-19T11:00:00').",
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description or notes for the event.",
+                },
+                "location": {
+                    "type": "string",
+                    "description": "An optional location for the event.",
+                },
+            },
+            "required": ["summary", "start_time", "end_time"],
+        },
+    },
+    {
+        "type": "function",
         "name": "create_file",
         "description": "Create a new file with the specified name in the C:\\My Projects folder.",
         "parameters": {
