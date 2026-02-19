@@ -22,6 +22,8 @@
 - Strictly follow PEP8 for all Python code.
 - Use type hints for all function arguments. DO NOT use return type hints (the `-> int` part) anywhere.
 - Every function must have a docstring describing its purpose and parameters.
+- Never use single-letter variable names (e.g., avoid `x`, `i`, `n`). Use descriptive names like `index`, `count`, `user_name`.
+- Write clean, easily readable code with clear logic flow and appropriate whitespace.
 - Code must be formatted with:
   ```
   black .
