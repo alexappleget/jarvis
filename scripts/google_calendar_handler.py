@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 def add_google_calendar_event(
     summary: str,
     start_time: str,
