@@ -81,10 +81,10 @@ JARVIS_TOOLS = [
             "properties": {
                 "filename": {
                     "type": "string",
-                    "description": "The name for the new file (e.g., 'notes.txt')."
+                    "description": "The name for the new file (e.g., 'notes.txt').",
                 },
             },
-            "required": ["filename"]
-        }
+            "required": ["filename"],
+        },
     },
 ]
