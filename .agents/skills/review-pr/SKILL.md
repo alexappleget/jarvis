@@ -1,4 +1,4 @@
 ---
 name: review-pr
-description: Add a description here.
+description: Reviews a GitHub PR.
 ---
