@@ -44,7 +44,7 @@ JARVIS_TOOLS = [
     {
         "type": "function",
         "name": "add_google_calendar_event",
-        "description": "Add a new event to Alex's Google Calendar.",
+        "description": "Add a new event to Alex's Google Calendar. Use this tool when Alex mentions that he wants to make a Google event, meeting, appointment, or calendar entry.",
         "parameters": {
             "type": "object",
             "properties": {
