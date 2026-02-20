@@ -66,13 +66,3 @@ def add_google_calendar_event(
     except Exception as error:
         print(f"Error in adding Google Calendar event: {error}")
         return {"success": False, "error": str(error)}
-
-if __name__ == "__main__":
-    result = add_google_calendar_event(
-        summary="Manual Test Event",
-        start_time="2026-02-19T14:00:00",
-        end_time="2026-02-19T15:00:00",
-        description="Testing manual event creation.",
-        location="Dallas, TX"
-    )
-    print(result)
